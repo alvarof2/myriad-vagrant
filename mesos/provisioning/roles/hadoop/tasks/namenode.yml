@@ -44,7 +44,6 @@
     - hdfs-site.xml
     - mapred-site.xml
     - yarn-site.xml
-    - workers
-    - slaves
+    - "{{ 'workers' if hadoop_version|version_compare('3.0.0', '>=') else 'slaves' }}"
     - myriad-config-default.yml
   tags: hadoop
