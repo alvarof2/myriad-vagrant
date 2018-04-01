@@ -20,8 +20,8 @@ mesosMaster: mesos-m1:5050
 checkpoint: false
 frameworkFailoverTimeout: 43200000
 frameworkName: MyriadAlpha
-frameworkRole: "*"
-frameworkUser: hduser     # User the Node Manager runs as, required if nodeManagerURI set, otherwise defaults to the user
+frameworkRole: "test"
+frameworkUser: yarn     # User the Node Manager runs as, required if nodeManagerURI set, otherwise defaults to the user
                           # running the resource manager.
 frameworkSuperUser: root  # To be deprecated, currently permissions need set by a superuser due to Mesos-1790.  Must be
                           # root or have passwordless sudo. Required if nodeManagerURI set, ignored otherwise.
@@ -37,20 +37,20 @@ profiles:
     cpu: 0
     mem: 0
   small:
-    cpu: 2
-    mem: 2048
+    cpu: 1
+    mem: 200
   medium:
-    cpu: 4
+    cpu: 4  
     mem: 4096
   large:
     cpu: 10
     mem: 12288
 nmInstances: # NMs to start with. Requires at least 1 NM with a non-zero profile.
-  medium: 1 # <profile_name : instances>
+  small: 1 # <profile_name : instances>
 rebalancer: false
 haEnabled: false
 nodemanager:
-  jvmMaxMemoryMB: 1024
+  jvmMaxMemoryMB: 256
   cpus: 0.2
   cgroups: false
 executor:
@@ -67,7 +67,7 @@ yarnEnvironment:
   #HADOOP_CONF_DIR=config
   #HADOOP_TMP_DIR=$MESOS_SANDBOX
   #YARN_HOME: hadoop-2.7.0 #this should be relative if nodeManagerUri is set
-  #JAVA_HOME: /usr/lib/jvm/java-default #System dependent, but sometimes necessary
+  JAVA_HOME: /usr/lib/jvm/java #System dependent, but sometimes necessary
   #JAVA_HOME: jre1.7.0_76 # Path to JRE distribution, relative to sandbox directory
   #JAVA_LIBRARY_PATH: /opt/mycompany/lib
 #mesosAuthenticationPrincipal:
