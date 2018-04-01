@@ -1,0 +1,28 @@
+---
+- name: build
+  type: build
+  box: centos/7
+  ip: 100.0.10.100
+  mem: 3072
+  cpu: 2
+- name: mesos-m1
+  type: master
+  box: centos/7
+  ip: 100.0.10.101
+  mem: 1024
+  cpu: 2
+- name: mesos-a1
+  type: agent
+  box: centos/7
+  ip: 100.0.10.102
+  mem: 1024
+  cpu: 2
+- name: mesos-a2
+  type: agent
+  box: centos/7
+  ip: 100.0.10.103
+  mem: 1024
+  cpu: 2
+  aditional_disk:
+    - 50G
+    - 50G
