@@ -50,11 +50,11 @@ nmInstances: # NMs to start with. Requires at least 1 NM with a non-zero profile
 rebalancer: false
 haEnabled: false
 nodemanager:
-  jvmMaxMemoryMB: 256
+  jvmMaxMemoryMB: 124
   cpus: 0.2
   cgroups: false
 executor:
-  jvmMaxMemoryMB: 256
+  jvmMaxMemoryMB: 124
   #path: file:///usr/local/libexec/mesos/myriad-executor-runnable-0.1.0.jar
   path: file:///opt/hadoop/share/hadoop/yarn/lib/myriad-executor-0.2.0.jar
   #The following should be used for a remotely distributed URI, hdfs assumed but other URI types valid.
